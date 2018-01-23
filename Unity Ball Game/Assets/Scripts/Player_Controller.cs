@@ -6,6 +6,8 @@ public class Player_Controller : MonoBehaviour {
 	
 	public float speed;
 	private Rigidbody sphereRB;
+	public float jumpForce;
+	private bool isGrounded;
 	
 	void Start()
 	{
@@ -14,11 +16,20 @@ public class Player_Controller : MonoBehaviour {
 	
 	void FixedUpdate()
     {
+		//Horizontal movement
         float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 		
 		Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 		
 		sphereRB.AddForce(movement * speed);
+		
+		//Jump 
+		isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.5f);
+		
+		if(isGrounded && Input.GetKey(KeyCode.Space))
+		{
+			sphereRB.AddForce(0, jumpForce, 0);
+		}
     }
 }
