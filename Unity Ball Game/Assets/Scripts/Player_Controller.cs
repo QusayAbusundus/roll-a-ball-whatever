@@ -32,4 +32,14 @@ public class Player_Controller : MonoBehaviour {
 			sphereRB.AddForce(0, jumpForce, 0);
 		}
     }
+	
+	void OnTriggerEnter(Collider other) 
+	{
+		//Destroy(other.gameObject);
+		
+		if(other.gameObject.compareTag("Pick Up"))
+		{
+			other.gameObject.setActive(false);
+		}
+	}
 }

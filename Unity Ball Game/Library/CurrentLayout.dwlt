@@ -203,8 +203,8 @@ MonoBehaviour:
     y: 0
     width: 383
     height: 544
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.28402725, y: 0.0071910336, z: -0.0021302428, w: 0.9587869}
     speed: 2
-    m_Value: {x: 0.28402725, y: 0.0071910336, z: -0.0021302428, w: 0.9587869}
+    m_Value: {x: -0.28402725, y: -0.0071910336, z: 0.002130243, w: -0.9587869}
   m_Size:
     m_Target: 13.139625
     speed: 2
@@ -514,9 +514,9 @@ MonoBehaviour:
     height: 523
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 52250000
-    m_LastClickedID: 9554
-    m_ExpandedIDs: e6fbffff00000000462500007c250000
+    m_SelectedIDs: 54250000
+    m_LastClickedID: 9556
+    m_ExpandedIDs: e6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -602,18 +602,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Materials
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Materials/Materials
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: L:\GitHub\roll-a-ball-whatever\Unity Ball Game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: cc240000
-    m_LastClickedID: 9420
+    m_SelectedIDs: 04250000
+    m_LastClickedID: 9476
     m_ExpandedIDs: 00000000a8240000cc24000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
