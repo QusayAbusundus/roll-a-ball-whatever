@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bobbing : MonoBehaviour {
 	
 	private int direction = 1;
+	public float distanceRisen;
 	
 	// Update is called once per frame
 	void Update () 
@@ -12,7 +13,7 @@ public class Bobbing : MonoBehaviour {
 		transform.Rotate(new Vector3(15, 30, 25) * Time.deltaTime);
 
 		transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y + Random.Range(0.001f, 0.1f)*direction, transform.localPosition.z);
-		if(transform.localPosition.y > 2)
+		if(transform.localPosition.y > distanceRisen)
 		{
 			direction = -1;
 		}

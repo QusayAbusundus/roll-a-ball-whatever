@@ -37,9 +37,9 @@ public class Player_Controller : MonoBehaviour {
 	{
 		//Destroy(other.gameObject);
 		
-		if(other.gameObject.compareTag("Pick Up"))
+		if(other.gameObject.CompareTag("Pick Up"))
 		{
-			other.gameObject.setActive(false);
+			other.gameObject.SetActive(false);
 		}
 	}
 }
