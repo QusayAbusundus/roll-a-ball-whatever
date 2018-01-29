@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour {
 	
@@ -8,10 +9,16 @@ public class Player_Controller : MonoBehaviour {
 	private Rigidbody sphereRB;
 	public float jumpForce;
 	private bool isGrounded;
+	private int score;
+	public Text scoreText;
+	public Text winText;
 	
 	void Start()
 	{
 		sphereRB = GetComponent<Rigidbody>();
+		score = 0;
+		setScoreText();
+		winText.text = "";
 	}
 	
 	void FixedUpdate()
@@ -40,6 +47,17 @@ public class Player_Controller : MonoBehaviour {
 		if(other.gameObject.CompareTag("Pick Up"))
 		{
 			other.gameObject.SetActive(false);
+			score++;
+			setScoreText();
+		}
+	}
+	
+	void setScoreText()
+	{
+		scoreText.text = "Score: " + score.ToString();
+		if(score >= 12)
+		{
+			winText.text = "You win!";
 		}
 	}
 }
