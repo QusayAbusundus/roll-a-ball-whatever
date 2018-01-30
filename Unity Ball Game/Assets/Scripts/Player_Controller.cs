@@ -12,6 +12,7 @@ public class Player_Controller : MonoBehaviour {
 	private int score;
 	public Text scoreText;
 	public Text winText;
+	private int gameState = 0;
 	
 	void Start()
 	{
@@ -23,32 +24,41 @@ public class Player_Controller : MonoBehaviour {
 	
 	void FixedUpdate()
     {
-		//Horizontal movement
-        float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
-		
-		Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
-		
-		sphereRB.AddForce(movement * speed);
-		
-		//Jump 
-		isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.5f);
-		
-		if(isGrounded && Input.GetKey(KeyCode.Space))
+		if(gameState == 0)
 		{
-			sphereRB.AddForce(0, jumpForce, 0);
+			//Horizontal movement
+			float moveHorizontal = Input.GetAxis("Horizontal");
+			float moveVertical = Input.GetAxis("Vertical");
+			
+			Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+			
+			sphereRB.AddForce(movement * speed);
+			
+			//Jump 
+			isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.5f);
+			
+			if(isGrounded && Input.GetKey(KeyCode.Space))
+			{
+				sphereRB.AddForce(0, jumpForce, 0);
+			}
+		}
+		else if(gameState == 1)
+		{
+			winText.text = "You win!";
 		}
     }
 	
 	void OnTriggerEnter(Collider other) 
 	{
 		//Destroy(other.gameObject);
-		
-		if(other.gameObject.CompareTag("Pick Up"))
+		if(gameState == 0)
 		{
-			other.gameObject.SetActive(false);
-			score++;
-			setScoreText();
+			if(other.gameObject.CompareTag("Pick Up"))
+			{
+				other.gameObject.SetActive(false);
+				score++;
+				setScoreText();
+			}
 		}
 	}
 	
@@ -57,7 +67,7 @@ public class Player_Controller : MonoBehaviour {
 		scoreText.text = "Score: " + score.ToString();
 		if(score >= 12)
 		{
-			winText.text = "You win!";
+			gameState = 1;
 		}
 	}
 }
